@@ -12966,7 +12966,7 @@ PrefabInstance:
       objectReference: {fileID: 1686660562162141552}
     - target: {fileID: 878527224918170364, guid: b50bd5c3365a8c0449b18a4f01b92410, type: 3}
       propertyPath: totalTrashNeeded
-      value: 1
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 878527224918170364, guid: b50bd5c3365a8c0449b18a4f01b92410, type: 3}
       propertyPath: notificationSystem
@@ -12974,7 +12974,7 @@ PrefabInstance:
       objectReference: {fileID: 1346137601}
     - target: {fileID: 878527224918170364, guid: b50bd5c3365a8c0449b18a4f01b92410, type: 3}
       propertyPath: secondMissionTotal
-      value: 1
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3982717982520559889, guid: b50bd5c3365a8c0449b18a4f01b92410, type: 3}
       propertyPath: m_LocalPosition.x
