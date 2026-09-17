@@ -417,11 +417,11 @@ MonoBehaviour:
   fovSpeed: 4
   audioSource: {fileID: 6630675002542328569}
   audioClips:
-  - {fileID: 8300000, guid: ed1108e7caa42aa4a827747888e779bd, type: 3}
-  - {fileID: 8300000, guid: bd43fcadaa6483c4cb4c485ac7c915db, type: 3}
-  - {fileID: 8300000, guid: f4184702d6821ec45a050343adbcb30d, type: 3}
-  - {fileID: 8300000, guid: 1f2b125727044d744934ef4bf699a9cf, type: 3}
-  - {fileID: 8300000, guid: ed1108e7caa42aa4a827747888e779bd, type: 3}
+  - {fileID: 8300000, guid: 0c7645c68d9a85c43a7ce59b42959fec, type: 3}
+  - {fileID: 8300000, guid: 5db880d77b37dab45a375f5a655f1d8b, type: 3}
+  - {fileID: 8300000, guid: c92a0b9b0333cfe4d9c034d846dfa287, type: 3}
+  - {fileID: 8300000, guid: 16241c32b43d99e41852a9d6b4d890c4, type: 3}
+  - {fileID: 8300000, guid: 43d12d1b0c40e6348bc3556a0651ed87, type: 3}
   subtitles: []
   subtitleText: {fileID: 7062984117447742284}
   playerController: {fileID: 0}
