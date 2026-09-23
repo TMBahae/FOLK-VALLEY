@@ -5,7 +5,6 @@ public class Paper : Interactable
 {
     [SerializeField] private TaskList taskList;
     [SerializeField] private CinematicSystem cinematicSystem;
-    [SerializeField] private NotificationSystem notificationSystem;
     [SerializeField] private GameObject objectToEnable;
     [SerializeField] private int cinematicIndex = 5;
 
@@ -14,75 +13,52 @@ public class Paper : Interactable
 
     public override void Interact()
     {
+        if (cinematicPlaying) return;
+
         if (!AudioRecorder.HasListenedToRecording)
-        {
-            if (notificationSystem != null)
-                notificationSystem.ShowNotification("Find the recording first!", "#e02a0d");
             return;
-        }
 
         if (!KeyManager.KeysFound)
-        {
-            if (notificationSystem != null)
-                notificationSystem.ShowNotification("Keys required to unlock!", "#e02a0d");
             return;
-        }
 
         if (taskList != null)
         {
             taskList.SetSecondPaper(true);
             taskList.ToggleTaskList();
             isWaitingForClose = true;
-            Debug.Log("Paper: Opened.");
         }
+
+        if (objectToEnable != null)
+            objectToEnable.SetActive(true);
     }
 
     private void Update()
     {
         if (!isWaitingForClose) return;
-        if (taskList == null) return;
         if (cinematicPlaying) return;
+        if (taskList == null) return;
 
-        if (!taskList.IsOpen && isWaitingForClose)
+        if (!taskList.IsOpen)
         {
-            Debug.Log("Paper: Closed. Starting cinematic...");
             isWaitingForClose = false;
-            cinematicPlaying = true;
 
             if (cinematicSystem != null)
             {
+                cinematicPlaying = true;
                 StartCoroutine(PlayCinematicAndWait());
-            }
-            else
-            {
-                Debug.LogError("Paper: CinematicSystem is null!");
-                cinematicPlaying = false;
             }
         }
     }
 
     private IEnumerator PlayCinematicAndWait()
     {
-        Debug.Log("Paper: Playing cinematic...");
-        
         bool finished = false;
         cinematicSystem.OnCinematicFinished += () => { finished = true; };
-        
+
         cinematicSystem.PlayCinematic(cinematicIndex);
-        
+
         while (!finished)
             yield return null;
-        
-        Debug.Log("Paper: Cinematic finished. Enabling object.");
-        
-        if (objectToEnable != null)
-        {
-            objectToEnable.SetActive(true);
-            Debug.Log("Paper: Object enabled: " + objectToEnable.name);
-        }
-
-        if (notificationSystem != null)
-            notificationSystem.ShowNotification("Cube unlocked!", "#b1fc03");
 
         cinematicPlaying = false;
     }
