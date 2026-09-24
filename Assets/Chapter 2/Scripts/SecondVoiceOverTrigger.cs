@@ -5,7 +5,9 @@ public class SecondVoiceOverTrigger : MonoBehaviour
 {
     [SerializeField] private CinematicSystem cS;
     [SerializeField] private GameObject secondAudioObject;
+    [SerializeField] private GameObject portal1;
     private bool hasBeenActivated;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -18,6 +20,7 @@ public class SecondVoiceOverTrigger : MonoBehaviour
     private IEnumerator PlaySound()
     {
         hasBeenActivated = true;
+        portal1.SetActive(true);
         cS.PlayCinematic(6);
         yield return new WaitForSeconds(3);
         secondAudioObject.GetComponent<AudioSource>().Play();
