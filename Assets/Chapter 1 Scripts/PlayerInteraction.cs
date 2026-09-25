@@ -52,7 +52,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (currentTarget == null) return;
         
-        if (currentTarget is AudioRecorder)
+        if (currentTarget is AudioRecorder || currentTarget is Cleanable) // ADDED THIS FOR CHAPTER 2 | Luke
         {
             currentTarget.Interact();
             return;
