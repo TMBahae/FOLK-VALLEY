@@ -52,21 +52,36 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (currentTarget == null) return;
         
-        if (currentTarget is AudioRecorder || currentTarget is Cleanable) // ADDED THIS FOR CHAPTER 2 | Luke
+        if (currentTarget is AudioRecorder || currentTarget is BroomScript) // ADDED THIS FOR CHAPTER 2 | Luke
         {
             currentTarget.Interact();
             return;
         }
         
-        if (!AudioRecorder.HasListenedToRecording)
+        if(FindAnyObjectByType<AudioRecorder>() != null) // Changed sth here for chapter 2 | Luke
         {
-            if (notificationSystem != null)
+            if (!AudioRecorder.HasListenedToRecording)
             {
-                notificationSystem.ShowNotification("Find the recording first!");
+                if (notificationSystem != null)
+                {
+                    notificationSystem.ShowNotification("Find the recording first!");
+                }
+                return;
             }
-            return;
         }
-        
+
+        if (FindAnyObjectByType<BroomScript>() != null) // Changed sth here for chapter 2 | Luke
+        {
+            if (!BroomScript.HasPickedUpBroom)
+            {
+                if (notificationSystem != null)
+                {
+                    notificationSystem.ShowNotification("Find the broom first!");
+                }
+                return;
+            }
+        }
+
         currentTarget.Interact();
     }
     

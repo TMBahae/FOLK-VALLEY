@@ -8,6 +8,7 @@ public class CleanableManager : MonoBehaviour
     [SerializeField] private int cleanableAmount;
     [SerializeField] private NotificationSystem nS;
     [SerializeField] private DoorScript door;
+    [SerializeField] private GameObject broom;
     private int cleaned;
 
     public void OnClean()
@@ -17,6 +18,7 @@ public class CleanableManager : MonoBehaviour
         if (cleaned >= cleanableAmount)
         {
             door.OpenDoor();
+            Destroy(broom);
         }
     }
 }
