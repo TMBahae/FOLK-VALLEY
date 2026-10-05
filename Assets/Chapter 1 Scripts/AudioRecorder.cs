@@ -5,6 +5,9 @@ public class AudioRecorder : Interactable
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
     [SerializeField] private NotificationSystem notificationSystem;
+    [SerializeField] private CinematicSystem cinematicSystem;
+    [SerializeField] private int cinematicIndex = 0;
+    [SerializeField] private bool playCinematic = true;
     
     private static bool hasListenedToRecording = false;
     public static bool HasListenedToRecording => hasListenedToRecording;
@@ -15,7 +18,6 @@ public class AudioRecorder : Interactable
     
     public override void Interact()
     {
-        // If depleted, show low battery message
         if (isDepleted)
         {
             if (notificationSystem != null)
@@ -36,7 +38,6 @@ public class AudioRecorder : Interactable
         
         if (hasPlayed)
         {
-            // After first use, mark as depleted
             isDepleted = true;
             if (notificationSystem != null)
             {
@@ -63,6 +64,12 @@ public class AudioRecorder : Interactable
                 notificationSystem.ShowNotification("You can now interact with items!");
             }
             
+            // Play cinematic if enabled
+            if (playCinematic && cinematicSystem != null)
+            {
+                cinematicSystem.PlayCinematic(cinematicIndex);
+            }
+            
             float clipLength = audioClip.length;
             Invoke(nameof(ResetPlayback), clipLength);
         }
@@ -82,7 +89,6 @@ public class AudioRecorder : Interactable
         isPlaying = false;
     }
     
-    // Reset for new game
     public void ResetRecorder()
     {
         isDepleted = false;
