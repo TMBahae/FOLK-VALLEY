@@ -52,7 +52,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (currentTarget == null) return;
         
-        if (currentTarget is AudioRecorder || currentTarget is TPRecorder)
+        if (currentTarget is AudioRecorder || currentTarget is TPRecorder || currentTarget is GunPiece)
         {
             currentTarget.Interact();
             return;

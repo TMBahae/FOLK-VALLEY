@@ -16,6 +16,7 @@ public class TPRecorder : Interactable
     [Header("Post-Teleport")]
     [SerializeField] private GameObject particleSystemToDisable;
     [SerializeField] private bool disableFog = true;
+    [SerializeField] private ChasePlayer chasePlayer;
     
     private bool hasInteracted = false;
     
@@ -62,6 +63,11 @@ public class TPRecorder : Interactable
         if (particleSystemToDisable != null)
         {
             particleSystemToDisable.SetActive(false);
+        }
+        
+        if (chasePlayer != null)
+        {
+            chasePlayer.StartChase();
         }
     }
 }

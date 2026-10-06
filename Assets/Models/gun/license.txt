@@ -1,0 +1,11 @@
+Model Information:
+* title:	Richardson Model R-5 Slam Fire Shotgun Low Poly
+* source:	https://sketchfab.com/3d-models/richardson-model-r-5-slam-fire-shotgun-low-poly-18c60834719843948c5c26e82b4965b7
+* author:	Nollien (https://sketchfab.com/Nollien)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Richardson Model R-5 Slam Fire Shotgun Low Poly" (https://sketchfab.com/3d-models/richardson-model-r-5-slam-fire-shotgun-low-poly-18c60834719843948c5c26e82b4965b7) by Nollien (https://sketchfab.com/Nollien) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
