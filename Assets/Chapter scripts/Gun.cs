@@ -30,22 +30,27 @@ public class Gun : MonoBehaviour
     
     private void Shoot()
     {
+        if (audioSource != null && shootSound != null)
+            audioSource.PlayOneShot(shootSound);
+        
         Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
         RaycastHit hit;
         
         if (Physics.Raycast(ray, out hit, shootRange))
         {
             ChasePlayer chase = hit.collider.GetComponent<ChasePlayer>();
-            
-            if (chase == null)
-                chase = hit.collider.GetComponentInParent<ChasePlayer>();
-            
+            if (chase == null) chase = hit.collider.GetComponentInParent<ChasePlayer>();
             if (chase != null)
             {
-                if (audioSource != null && shootSound != null)
-                    audioSource.PlayOneShot(shootSound);
-                
                 chase.Die();
+                return;
+            }
+            
+            PuzzleNumber number = hit.collider.GetComponent<PuzzleNumber>();
+            if (number == null) number = hit.collider.GetComponentInParent<PuzzleNumber>();
+            if (number != null)
+            {
+                number.OnShot();
             }
         }
     }

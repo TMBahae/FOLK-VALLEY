@@ -1475,7 +1475,7 @@ MonoBehaviour:
   audioClip: {fileID: 8300000, guid: 8952298bdf2650c4a9ae00e631f4dded, type: 3}
   notificationSystem: {fileID: 3988299970887672772}
   cinematicSystem: {fileID: 2460798105820624035}
-  cinematicIndex: 4
+  cinematicIndex: 5
   playCinematic: 1
 --- !u!82 &224105699
 AudioSource:
@@ -13169,7 +13169,7 @@ PrefabInstance:
       objectReference: {fileID: 2460798105820624035}
     - target: {fileID: 878527224918170364, guid: b50bd5c3365a8c0449b18a4f01b92410, type: 3}
       propertyPath: totalTrashNeeded
-      value: 1
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 878527224918170364, guid: b50bd5c3365a8c0449b18a4f01b92410, type: 3}
       propertyPath: notificationSystem
@@ -13177,7 +13177,7 @@ PrefabInstance:
       objectReference: {fileID: 3988299970887672772}
     - target: {fileID: 878527224918170364, guid: b50bd5c3365a8c0449b18a4f01b92410, type: 3}
       propertyPath: secondMissionTotal
-      value: 1
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3982717982520559889, guid: b50bd5c3365a8c0449b18a4f01b92410, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19226,6 +19226,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c92a0b9b0333cfe4d9c034d846dfa287, type: 3}
   - {fileID: 8300000, guid: 16241c32b43d99e41852a9d6b4d890c4, type: 3}
   - {fileID: 8300000, guid: 43d12d1b0c40e6348bc3556a0651ed87, type: 3}
+  - {fileID: 8300000, guid: bed2958509bb55842a152041f12eb65c, type: 3}
   subtitles: []
   subtitleText: {fileID: 7062984117571559259}
   playerController: {fileID: 1502408172}
