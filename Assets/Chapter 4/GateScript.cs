@@ -8,7 +8,9 @@ public class GateScript : Interactable
     private int hitCount = 0;
     [SerializeField] private AudioClip openCloseSound;
     [SerializeField] private AudioClip hitSound;
-    [SerializeField] private Outline outLineScript;
+    [SerializeField] private CinematicSystem cS;
+    [SerializeField] private GameObject longMan;
+    [SerializeField] private MonsterCameraEffect mCE;
 
     public void OpenDaNoor()
     {
@@ -36,8 +38,11 @@ public class GateScript : Interactable
 
         if(hitCount > 5)
         {
+            longMan.SetActive(true);
             canBeDestroyed = false;
             OpenDaNoor();
+            cS.PlayCinematic(10);
+            mCE.PlayEffect();
         }
     }
 }
