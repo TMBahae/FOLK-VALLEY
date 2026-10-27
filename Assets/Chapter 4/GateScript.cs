@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.Video;
 
 public class GateScript : Interactable
 {
@@ -11,12 +13,14 @@ public class GateScript : Interactable
     [SerializeField] private CinematicSystem cS;
     [SerializeField] private GameObject longMan;
     [SerializeField] private MonsterCameraEffect mCE;
+    [SerializeField] private VideoPlayer videoPlayer;
 
     public void OpenDaNoor()
     {
         doorAnim.SetTrigger("DoorOpen");
         GetComponent<AudioSource>().generator = openCloseSound;
         GetComponent<AudioSource>().Play();
+        videoPlayer.Prepare();
     }
 
     public void CloseDaNoor()
@@ -43,6 +47,15 @@ public class GateScript : Interactable
             OpenDaNoor();
             cS.PlayCinematic(10);
             mCE.PlayEffect();
+            StartCoroutine(WaitSecondsPlayVideo());
         }
+    }
+
+    private IEnumerator WaitSecondsPlayVideo()
+    {
+        yield return new WaitForSeconds(10);
+        mCE.ResetEffect();
+        mCE.enabled = false;
+        videoPlayer.Play();
     }
 }
